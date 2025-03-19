@@ -1,0 +1,83 @@
+:root{
+    --body-background:#242424;
+    --primary-color:#072e25;
+    --primary-hover:#0B201B;
+    --secondary-color: #B8DBD9;
+    --secondary-hover:#90B6B4;
+    --header-background: var(--primary-color);
+    --card-color:#1f1f1f;
+    --card-color-selected: #373737;
+    --near-black: rgb(26, 26, 26);
+
+}
+
+body{
+    background-color: var(--body-background);
+    font-family: 'Inter', Arial,sans-serif;
+    color: #FFF;
+    overflow-y: scroll; /* to prevent the UI from moving when the scrollbar spawns */
+    overflow-x: hidden !important;
+}
+
+@media (min-width: 1536px){
+    .container {max-width:1280px !important}
+}
+
+.tooltip {
+    background-color: #000000;
+    border-radius: 0.375rem; /* rounded-md */
+    opacity: 0.65;
+    padding: 6px 6px;
+    color: white;
+    font-size: 0.875rem; /* text-sm */
+}
+
+.loading-animation {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Plotly figures */
+.dash-graph {
+    flex-grow: 1;
+    height: 100%;
+}
+
+
+.hovertext path {
+    fill: var(--card-color-selected)!important;
+    stroke:var(--card-color-selected)!important;
+    stroke-width: 8px !important;
+}
+.hovertext path, .hovertext text {
+    transform: translate(10px,0px);
+}
+
+/* Plotly hover rounded border */
+.hoverlayer .bg {
+    rx: 3;
+    shape-rendering: auto;
+    fill: var(--card-color-selected) !important;
+    stroke: var(--card-color-selected) !important;
+    stroke-width: 12px !important;
+}
+.hoverlayer .bg,
+.hoverlayer .scrollbox{
+    transform: translate(16px, 0px);
+}
+
+/* Highcharts in python dash create a div after the parent container, so this is needed */
+.graph div {
+    height: 100% !important;
+}
+
+#dash-page-container > div {
+    width: 100%;
+}
+#_pages_content {
+    height: 100%;
+}

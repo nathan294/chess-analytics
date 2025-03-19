@@ -1,0 +1,11 @@
+.highcharts-credits{
+    display: none !important;
+}
+
+.highcharts-text-outline{
+    display:none !important;
+}
+
+.highcharts-container, .highcharts-root{
+    height: 100% !important;
+}

@@ -1,0 +1,39 @@
+[project]
+name = "chess-analytics"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "dash==3.0.0",
+    "pandas>=2.2.3",
+    "dash-iconify>=0.1.2",
+    "dash-bootstrap-components==2.0.0",
+    "httpx>=0.28.1",
+    "nbformat>=5.10.4",
+    "dash-extensions>=1.0.20",
+    "polars==1.25.2",
+    "polars-xdt>=0.16.7",
+    "dash-alternative-viz",
+    "gunicorn>=23.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = ["ruff==0.11.0", "ipykernel>=6.29.5"]
+
+[tool.uv.sources]
+dash-alternative-viz = { git = "https://github.com/plotly/dash-alternative-viz.git" }
+
+
+[tool.ruff]
+exclude = [".venv", ".git", "__pycache__", "build", "dist", "venv"]
+extend-include = ["*.ipynb"]
+line-length = 150
+lint.ignore = ["E501", "E711", "E712"]
+# ^^ Never enforce `E501` (line length violations) & `E712` (== False instead of is false)
+target-version = "py312" # Assume Python 3.12
+src = ["src"]            # Code folder

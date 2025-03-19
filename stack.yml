@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  # This service runs the dashboard linked to this directory.
+  dashboard:
+    image: ghcr.io/nathan294/chess-analytics:main
+    entrypoint:
+      - gunicorn
+      - src.chess_analytics.app:server
+      - --bind
+      - ":10003"
+    ports:
+      - "10003:10003"
+    deploy:
+      labels:
+        - "traefik.enable=true"  # Enable Traefik for this service
+        - "traefik.docker.network=traefik-public"
+        - "traefik.constraint-label=traefik-public"
+        - "traefik.http.routers.chess_analytics.rule=Host(`chess-analytics.fr`)"
+        - "traefik.http.routers.chess_analytics.entrypoints=https"
+        - "traefik.http.routers.chess_analytics.tls=true"
+        - "traefik.http.routers.chess_analytics.tls.certresolver=le"
+        - "traefik.http.routers.chess_analytics-http.middlewares=https-redirect"
+        - "traefik.http.services.chess_analytics.loadbalancer.server.port=10003"  # Explicit port mapping for Traefik
+    networks:
+      - backend_network
+      - traefik-public
+    depends_on:
+      - postgresql
+      - traefik
+
+
+networks:
+  backend_network:
+    external: true
+    name: backend_network
+  traefik-public:
+    external: true
+    name: traefik-public

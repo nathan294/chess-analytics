@@ -1,0 +1,65 @@
+/* START - Custom Tab - Used to select between history & stats */
+.custom-tab {
+    border-radius: 0.375rem !important;
+    background-color: var(--card-color) !important;
+    border: none !important;
+    color: white !important;
+}
+
+.custom-tab-selected {
+    background-color: var(--card-color-selected) !important;
+    border-left: none !important;
+    border-bottom: none !important;
+    border-right: none !important;
+    border-top: 6px solid var(--primary-color) !important;
+    color: white !important;
+}
+/* END - Custom Tab - Used to select between history & stats */
+
+
+/* START - Custom Dropdown - Black theme to match our app theme */
+.custom-dropdown .Select-control{
+    background-color: transparent;
+    line-height: 0;
+    border:none;
+    color:white !important;
+}
+.has-value.Select--single>.Select-control .Select-value .Select-value-label{
+    color: white !important ;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.custom-dropdown .Select-menu-outer {
+    background-color: var(--card-color);
+    border:none;
+    color: white !important;
+}
+
+.custom-dropdown .Select-value {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+/* END - Custom Dropdown - Black theme to match our app theme */
+
+
+/* START - Custom Tabs for periodicity */
+.custom-tab-periodicity {
+    background-color: transparent !important;
+    border: none !important;
+    color: white !important;
+    padding:8px 0px !important;
+}
+
+.custom-tab-periodicity-selected {
+    background-color: transparent !important;
+    border-left: none !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: 4px solid var(--primary-color) !important;
+    color: white !important;
+}
+#gamemodeCard-periodicity-tabs-parent{
+    border-bottom: 1px solid #383838 !important;
+}
+/* END - Custom Tabs for periodicity */
